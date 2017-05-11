@@ -60,10 +60,10 @@ module.exports = function(router) {
     .catch(err => res.send(err));
   });
 
-  // router.get('/pic/:id', bearerAuth, (req, res) => {
-  //   debug('#GET /pic/:id');
-  //
-  // });
+  router.get('/pic/:id', bearerAuth, (req, res) => {
+    debug('#GET /pic/:id');
+
+  });
 
   return router;
 };
