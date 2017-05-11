@@ -36,7 +36,7 @@ describe('Auth Routes', function() {
         .end((err, res) => {
           // console.log('request', request.post, 'req');
           // console.log('res', res);
-          // if (err) return done(err);
+          if (err) return done(err);
           console.log('\ntoken:', res.text, '\n');
           // expect(res.status).to.equal(200);
           // expect(res.text).to.be.a('string');

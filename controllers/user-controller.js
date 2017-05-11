@@ -14,7 +14,10 @@ exports.createUser = function(user) {
 
   let newUser = new User(user);
 
-  return newUser.generatePasswordHash(tempPassword);
+  return newUser.generatePasswordHash(tempPassword)
+  .then(user => user.save())
+  .then(user => user.generateToken())
+  .catch(err => (err.status).send(err));
 };
 
 exports.userSignin = function(user) {
@@ -22,5 +25,6 @@ exports.userSignin = function(user) {
 
   console.log('user obj: ', user);
 
-  return User.findOne({username: user.username});
+  return User.findOne({username: user.username})
+  .catch(err => (err.status).send(err));
 };
