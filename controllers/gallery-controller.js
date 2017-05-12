@@ -10,7 +10,7 @@ module.exports = exports = {};
 //
 //
 // }
-
+//
 exports.viewGallery = function(gallery) {
   debug('gallery-controller.viewGallery()');
 
