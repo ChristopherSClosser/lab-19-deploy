@@ -19,9 +19,10 @@ AWS.config.setPromisesDependency(require('bluebird'));
 const s3 = new AWS.S3();
 
 function s3UploadProm(params) {
+  // console.log('s3UploadProm params', params);
   return new Promise((resolve, reject) => {
     s3.upload(params, (err, data) => {
-      if(err) return reject(console.log(err.message));
+      if(err) reject(err);
       resolve(data);
     });
   });
@@ -45,6 +46,7 @@ module.exports = function(router) {
     return Gallery.findById(req.params.id)
     .then(() => s3UploadProm(params))
     .then(s3Data => {
+      // console.log('req.user._id', req);
       del([`${dataDir}/*`]);
       let picData = {
         name: req.body.name,
@@ -54,16 +56,17 @@ module.exports = function(router) {
         imageURI: s3Data.Location,
         objectKey: s3Data.Key,
       };
+      // console.log('picData', picData);
       return new Pic(picData).save();
     })
     .then(pic => res.json(pic))
     .catch(err => res.send(err));
   });
 
-  router.get('/pic/:id', bearerAuth, (req, res) => {
-    debug('#GET /pic/:id');
-
-  });
+  // router.get('/pic/:id', bearerAuth, (req, res) => {
+  //   debug('#GET /pic/:id');
+  //
+  // });
 
   return router;
 };
