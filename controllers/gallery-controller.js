@@ -5,11 +5,11 @@ const Gallery = require('../models/user');
 
 module.exports = exports = {};
 
-// exports.createGallery = function(gallery) {
-//   debug('gallery-controller.createGallery()');
-//
-//
-// }
+exports.createGallery = function(gallery) {
+  debug('gallery-controller.createGallery()');
+
+
+}
 
 exports.viewGallery = function(gallery) {
   debug('gallery-controller.viewGallery()');
