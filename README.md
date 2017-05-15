@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ChristopherSClosser/lab-19-deploy.svg?branch=master)](https://travis-ci.org/ChristopherSClosser/lab-19-deploy)
 
 - create .env file:
 - add:
