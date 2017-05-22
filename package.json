@@ -2,15 +2,16 @@
   "name": "lab-19-deploy",
   "version": "1.0.0",
   "description": "",
+  "repository": "https://github.com/ChristopherSClosser/lab-19-deploy.git",
   "main": "server-test.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "lint": "eslint ./",
-    "test": "mocha",
+    "test": "npm run coveralls",
     "start": "node server.js",
-    "debug": "DEBUG=cfgram* nodemon server.js",
+    "debug": "DEBUG=* nodemon server.js",
     "cover": "npm run lint && istanbul cover _mocha",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },

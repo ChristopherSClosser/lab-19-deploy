@@ -1,5 +1,44 @@
 'use strict';
 
+// 'use strict';
+//
+// const multer = require('multer');
+// const dataDir = `${__dirname}/../data`;
+// const upload = multer({dest: dataDir});
+// const debug = require('debug')('http:pic-routes');
+// const bearerAuth = require('../lib/bearer-auth-middleware');
+//
+// const picCtrl = require('../controllers/pic-controller');
+//
+// module.exports = function(router) {
+//
+//   router.post('/gallery/:id/image', bearerAuth, upload.single('image'), (req, res) => {
+//     debug('#POST /gallery/:id/image');
+//
+//     return picCtrl.createPic(req)
+//     .then(pic => res.json(pic))
+//     .catch(err => res.send(err));
+//   });
+//
+//   router.get('/pic/:id', bearerAuth, (req, res) => {
+//     debug('#GET /pic/:id');
+//
+//     return picCtrl.fetchPic(req)
+//     .then(pic => res.json(pic))
+//     .catch(err => res.status(err.status).send(err.message));
+//   });
+//
+//   router.delete('/gallery/:id/pic/:picId', bearerAuth, (req, res) => {
+//     debug('#DELETE /gallery/:id/pic/:picId');
+//
+//     return picCtrl.deletePic(req)
+//     .then(() => res.sendStatus(204))
+//     .catch(err => res.status(err.status).send(err.message));
+//   });
+//
+//   return router;
+// };
+
 const fs = require('fs');
 const del = require('del');
 const path = require('path');

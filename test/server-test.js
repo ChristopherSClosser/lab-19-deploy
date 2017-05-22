@@ -9,8 +9,7 @@
 // chai.use(http);
 //
 // describe('server - test', function() {
-//   let app,
-//     userObj = [];
+//   let userObj = [];
 //
 //
 //   describe('/wrong endpoint', function() {
@@ -56,8 +55,8 @@
 //     describe('/signin endpoint', function() {
 //       it('should respond with a 200 on proper request', done => {
 //         chai.request(server)
-//         .get('/api/signin -a chris:1234')
-//         // .send({`{${userObj.username}:${userObj.password}}`})
+//         .get('/api/signin')
+//         .send(`{${userObj.username}:${userObj.password}}`)
 //         .end((err, res) => {
 //           console.log(res.status);
 //           done();

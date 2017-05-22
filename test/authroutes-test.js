@@ -6,9 +6,6 @@ const mongoose = require('mongoose');
 const Promise = require('bluebird');
 const User = require('../models/user');
 
-// const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/test-dev';
-
-
 require('../server.js');
 mongoose.Promise = Promise;
 
@@ -19,6 +16,8 @@ const exampleUser = {
   password: '1234',
   email: 'exampleuser@test.com',
 };
+
+let results = [];
 
 describe('Auth Routes', function() {
   describe('POST: /api/signup', function() {
@@ -34,14 +33,21 @@ describe('Auth Routes', function() {
         request.post(`${url}/api/signup `)
         .send(exampleUser)
         .end((err, res) => {
-          // console.log('request', request.post, 'req');
-          // console.log('res', res);
           if (err) return done(err);
           console.log('\ntoken:', res.text, '\n');
-          // expect(res.status).to.equal(200);
-          // expect(res.text).to.be.a('string');
+          results.push(res.status);
+          expect(res.text).to.be.a('string');
           done();
         });
+      });
+
+      it('should have 200 status', done => {
+
+        console.log(results);
+        expect(results[0]).to.equal(200);
+        results.pop();
+        done();
+
       });
     });
   });
@@ -70,11 +76,19 @@ describe('Auth Routes', function() {
         .auth('exampleuser', '1234')
         .end((err, res) => {
           if (err) return done(err);
-          // console.log('\nuser:', this.tempUser);
-          // console.log('\ntoken:', res.text);
+          results.push(res.status);
+          expect(res.text).to.be.a('string');
           expect(res.status).to.equal(200);
           done();
         });
+      });
+
+      it('should have a status of 200', done => {
+
+        console.log(results);
+        expect(results[0]).to.equal(200);
+        results.pop();
+        done();
       });
     });
   });

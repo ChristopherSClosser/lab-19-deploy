@@ -6,7 +6,7 @@ const express = require('express');
 const cors = require('cors');
 const debug = require('debug')('cfgram:server');
 const Promise = require('bluebird');
-const errorHandler = require('./lib/error-middleware');
+// const errorHandler = require('./lib/error-middleware');
 const authRoutes = require('./routes/auth-routes');
 const galleryRoutes = require('./routes/gallery-routes');
 const picRoutes = require('./routes/pic-routes');
@@ -21,7 +21,7 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/cfgram-dev';
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
-app.use(errorHandler);
+// app.use(errorHandler);
 app.use(cors());
 app.use(bodyParser);
 app.use('/api', authRoutes(router));
