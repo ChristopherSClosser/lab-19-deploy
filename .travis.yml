@@ -1,3 +1,4 @@
+
 language: node_js
 node_js:
   - '7'
@@ -15,4 +16,4 @@ addons:
 sudo: required
 before_script: npm i -g eslint mocha
 script:
-  - npm run cover
+  - npm run test
