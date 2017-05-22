@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ChristopherSClosser/lab-19-deploy.svg?branch=master)](https://travis-ci.org/ChristopherSClosser/lab-19-deploy) [![Coverage Status](https://coveralls.io/repos/github/ChristopherSClosser/lab-19-deploy/badge.svg?branch=lab-19-chris)](https://coveralls.io/github/ChristopherSClosser/lab-19-deploy?branch=lab-19-chris)
+[![Build Status](https://travis-ci.org/ChristopherSClosser/lab-19-deploy.svg?branch=master)](https://travis-ci.org/ChristopherSClosser/lab-19-deploy) [![Coverage Status](https://coveralls.io/repos/github/ChristopherSClosser/lab-19-deploy/badge.svg)](https://coveralls.io/github/ChristopherSClosser/lab-19-deploy)
 
 - create .env file:
 - add:
